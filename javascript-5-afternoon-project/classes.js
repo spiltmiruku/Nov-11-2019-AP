@@ -37,7 +37,7 @@ class Employee{
     this.age = age;
   }
   makeWidget(){
-    return this.first_name + this.last_name + 'widget';
+    return this.first_name + ' ' + this.last_name + ' ' + ' Widget';
   }
 }
 
@@ -57,7 +57,7 @@ class Employee{
 */
 
 class Manager extends Employee {
-  constructor(reports, hire, fire){
+  constructor(first_name, last_name, email, age, reports, hire, fire){
     super(reports)
   }
   reports(){
@@ -97,8 +97,10 @@ class Manager extends Employee {
   Call your new class ProgressiveManager
 */
 
-//Code Here
-
+class ProgressiveManager extends Manager{
+  constructor(first_name, last_name, email, age, reports, hire, fire){
+  }
+}
 
 
 ////////// PROBLEM 4 - Black Diamond //////////

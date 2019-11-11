@@ -50,7 +50,7 @@ function callFriend(name) {
 var callJake = callFriend('Jake');
 callJake('435-555-9248')
 
-console.log(callJake)
+// console.log(callJake)
 
 
 ////////// PROBLEM 3 //////////
@@ -86,10 +86,10 @@ count(); // 4
 
 function counterFactory(value) {
   return {
-    inc(value) {
+    inc() {
       return value += 1;
     },
-    dec(value) {
+    dec() {
       return value -= 1;
     }
   };
@@ -113,10 +113,10 @@ function motivation(firstname, lastname) {
   var welcomeText = "You're doing awesome, keep it up";
 
 function message(){
-  return welcomeText + ' ' + firstname + ' ' + lastname;
+  return welcomeText + ' ' + firstname + ' ' + lastname + '.';
 }
   //Uncommment this to return the value of your message function
-  //return message;
+  return message;
 }
 
 var greeting = motivation("Billy", "Bob"); // 'You're doing awesome keep it up Billy Bob.
@@ -168,11 +168,11 @@ function secretNumber() {
   var secret = 143;
 
   return {
-    addToSecret(param){
-return param += secret;
+    addToSecret(num){
+return secret += num;
     },
-    takeAwayFromSecret(param){
-return param -= secret;
+    takeAwayFromSecret(num){
+return secret -= num;
     }
   };
 }
@@ -196,10 +196,10 @@ return param -= secret;
 */
 
 function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000);
+  for (var i = 0; i <= 5; i++){ 
+  function wrapper(ind){
+      setTimeout(function() {console.log(ind);}, i * 1000);
+    }wrapper(i);
   }
 }
 timeOutCounter();
