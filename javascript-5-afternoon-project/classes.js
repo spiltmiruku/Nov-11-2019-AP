@@ -29,15 +29,16 @@
   Call your class Employee and receive all the data in the constructor in the order listed above.
 */
 
-class Employee{
-  constructor(first_name, last_name, email, age){
+class Employee {
+  constructor(first_name, last_name, email, age) {
     this.first_name = first_name;
     this.last_name = last_name;
     this.email = email;
     this.age = age;
   }
-  makeWidget(){
-    return this.first_name + ' ' + this.last_name + ' ' + ' Widget';
+  makeWidget() {
+    return this.first_name + " " + this.last_name + " " + "Widget";
+    // return `${this.first_name} ${this.last_name} Widget`;
   }
 }
 
@@ -57,24 +58,17 @@ class Employee{
 */
 
 class Manager extends Employee {
-  constructor(first_name, last_name, email, age, reports, hire, fire){
-    super(reports)
+  constructor(first_name, last_name, email, age) {
+    super(first_name, last_name, email, age);
+    this.reports = [];
   }
-  reports(){
-    return [];
+  hire(newEmployee) {
+    this.reports.push(newEmployee);
   }
-  hire(newEmployee){
-    return reports.push(newEmployee)
-  }
-  fire(){
-    for(let i = 0; i < newEmployee.length; i++);
-    return newEmployee.i;
-  }
-  Fire(){
-    return reports.splice(newEmployee.i, 1)
+  fire(i) {
+    this.reports.splice(i, 1);
   }
 }
-
 
 ////////// PROBLEM 3 //////////
 
@@ -97,11 +91,14 @@ class Manager extends Employee {
   Call your new class ProgressiveManager
 */
 
-class ProgressiveManager extends Manager{
-  constructor(first_name, last_name, email, age, reports, hire, fire){
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age, reports, hire, fire) {
+    this.title = 'Not a manager';
+    this.bonus = 0
   }
-}
+  
 
+}
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -126,6 +123,25 @@ class ProgressiveManager extends Manager{
         - The anonymous function should decrease wear_and_tear_count by 10, and set needs_reboot to false
 */
 
-//Code Here
-
-
+class Machine {
+  constructor(widgets_made_count, wear_and_tear_count, needs_reboot) {
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  
+  makeWidgets(num) {
+    this.widgets_made_count += num;
+    this.wear_and_tear_count += (num / 50);
+  }
+  fixMachine() {
+    this.needs_reboot = true;
+  }
+  reboot() {
+    if (this.needs_reboot === true)
+      return () =>{
+        this.wear_and_tear_count -= 10;
+        this.needs_reboot = false;
+      };
+  }
+}
