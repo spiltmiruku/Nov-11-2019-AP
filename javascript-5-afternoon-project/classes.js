@@ -92,13 +92,52 @@ class Manager extends Employee {
 */
 
 class ProgressiveManager extends Manager {
-  constructor(first_name, last_name, email, age, reports, hire, fire) {
+  constructor(first_name, last_name, email, age, title, bonus){
+  super(first_name, last_name, email, age);
     this.title = 'Not a manager';
     this.bonus = 0
   }
-  
 
-}
+  hire(){
+    super.hire()
+    let newReports = this.reports.length
+    if(newReports === 0){
+      this.title = 'Not a manager';
+    }else if(newReports >= 1 && newReports <= 3){
+      this.title = 'Barely Manager';
+    }else if(newReports >= 4 && newReports <= 10){
+      this.title = 'Mostly Manager';
+    }else if(newReports >= 11 && newReports <= 50){
+      this.title = 'Manager';
+    }else if(newReports >= 51 && newReports <= 100){
+      this.title = 'Manager Plus';
+    }else {
+      this.title = 'Bestest Manager';
+    }
+  
+  }
+    fire() {
+      super.fire()
+      this.bonus += 100;
+    }
+  }
+
+
+
+  
+//   extendingHireFunction(){
+//     let rCount = this.reports.length
+//   super.hire()
+//   if(rCount === 0){
+//     this.title = 'Not a manager'
+//   }else if(rCount > 0 && rCount <= 3){
+//     this.title = 'barely manager'
+//   }
+  
+//   super.fire()
+// }
+//   } 
+// }
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
